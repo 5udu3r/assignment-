@@ -220,3 +220,4 @@ SIMPLE_JWT = {
 # LOGIN_URL = '/panel/login'
 
 AUTH_USER_MODEL = 'api.User'
+NEWS_API_TOKEN = '936feff6fec343ebb4b19104bafe64da'

@@ -2,6 +2,37 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
+class Agencies(models.Model):
+    name = models.CharField(max_length=255, default='noname')
+    parent = models.CharField(max_length=255, default='noname')
+    credibility_rate = models.CharField(max_length=255, default='noname')
+
+
+class News(models.Model):
+    NEWS_API = 'N'
+    RED = 'R'  # reddit
+    SOURCES = (
+        (NEWS_API, 'NEWS API'),
+        (RED, 'REDDIT'),
+     )
+    headline = models.CharField(max_length=255, default='noname')
+    link = models.CharField(max_length=255, default='noname')
+    source = models.CharField(max_length=1, choices=SOURCES, default=NEWS_API, blank=True, null=True)
+    agency = models.ForeignKey(Agencies, on_delete=models.CASCADE)
+    country = models.CharField(max_length=2, default='noname')
+    author = models.CharField(max_length=128, default='noname')
+    urlToImage = models.CharField(max_length=512, default='noname')
+    publishedAt = models.DateTimeField(max_length=64, default='noname')
+
+
+class SearchResults(models.Model):
+    """
+        ... to Save The Search Results
+    """
+    ip = models.CharField(max_length=255, blank=True, null=True)
+    keyword = models.CharField(max_length=255, default='noname')
+    date_time = models.CharField(max_length=255, default='noname')
+
 
 class User(AbstractUser):
     DIPLOMA = 'DI'
