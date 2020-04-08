@@ -17,8 +17,9 @@ urlpatterns = [
      path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
      path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-     # cities
-     url(r'^list/list/$', views.test, name='req_list'),
-     url(r'^req/list/$', views.test, name='req_list'),
+     # News List
+     path('news', views.news, name='req_list'),
+     path('news/list/<int:show_count>/', views.news_custom_list, name='req_list'),
+     path('news/search/<str:keyword>/', views.news_custom_search, name='req_list'),
 
 ]

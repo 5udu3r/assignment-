@@ -11,10 +11,30 @@ import ghasedak
 import random
 from rest_framework_simplejwt.tokens import RefreshToken
 
-@api_view(['POST'])
+@api_view(['GET'])
+# @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
+@permission_classes((AllowAny, IsAuthenticated))
+def news(request):
+    """
+    kghvkghvkh
+    """
+    content = {'message': 'Hello, World! from yapaitek api'}
+    return JsonResponse(content)
+
+@api_view(['GET'])
 @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
 @permission_classes((AllowAny, IsAuthenticated))
-def test(request):
+def news_custom_list(request):
+    """
+    kghvkghvkh
+    """
+    content = {'message': 'Hello, World! from yapaitek api'}
+    return JsonResponse(content)
+
+@api_view(['GET'])
+@renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
+@permission_classes((AllowAny, IsAuthenticated))
+def news_custom_search(request):
     """
     kghvkghvkh
     """
