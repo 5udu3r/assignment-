@@ -29,9 +29,8 @@ class SearchResults(models.Model):
     """
         ... to Save The Search Results
     """
-    ip = models.CharField(max_length=255, blank=True, null=True)
     keyword = models.CharField(max_length=255, default='noname')
-    date_time = models.CharField(max_length=255, default='noname')
+    date_time = models.DateTimeField()
 
 
 class User(AbstractUser):

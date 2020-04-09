@@ -6,6 +6,7 @@ import praw
 import datetime as dt
 
 from api import serializers
+from api.models import SearchResults
 from drf_yasg import openapi
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
@@ -25,16 +26,16 @@ def get_news_from_newsapi(limit=10, key=None, category='general'):
     if key is None:
         url = ('http://newsapi.org/v2/top-headlines?'
                'category=' + category + '&'
-                                      'apiKey=' + settings.NEWS_API_TOKEN)
+               'apiKey=' + settings.NEWS_API_TOKEN)
     else:
+        save_searched_keywords(key)
         url = ('http://newsapi.org/v2/top-headlines?'
                'q=' + key + '&'
-                            'category=' + category + '&'
-                                                   'apiKey=' + settings.NEWS_API_TOKEN)
+               'category=' + category + '&'
+               'apiKey=' + settings.NEWS_API_TOKEN)
 
     response = requests.get(url)
     result = response.json()
-    print(result)
     list_y = []
     for e in result['articles'][:limit]:
         yy = {
@@ -47,12 +48,15 @@ def get_news_from_newsapi(limit=10, key=None, category='general'):
     return list_y
 
 def get_news_from_reddit(limit=10, key='all'):
-    reddit = praw.Reddit(client_id=settings.reddit_client_id, \
-                         client_secret=settings.reddit_client_secret, \
-                         user_agent=settings.reddit_user_agent, \
-                         username=settings.reddit_username, \
+    reddit = praw.Reddit(client_id=settings.reddit_client_id,
+                         client_secret=settings.reddit_client_secret,
+                         user_agent=settings.reddit_user_agent,
+                         username=settings.reddit_username,
                          password=settings.reddit_password)
     list_x = []
+    if key != 'all':
+        save_searched_keywords(key)
+
     for submission in reddit.subreddit(key).hot(limit=limit):
         x = {
             "headline": submission.title,
@@ -61,8 +65,14 @@ def get_news_from_reddit(limit=10, key='all'):
             "source": "reddit"
         }
         list_x.append(x)
+
     return list_x
 
+def save_searched_keywords(key):
+    # TODO: check for duplicate entries
+    save_this_searched_key = SearchResults(keyword=key, date_time=dt.datetime.now())
+    save_this_searched_key.save()
+    pass
 
 def mix_news_together(list_a, list_b):
     mixed_list = [None] * (len(list_a) + len(list_b))
@@ -95,49 +105,6 @@ def normal_list(request):
 
 
 
-
-@api_view(['GET'])
-# @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
-@permission_classes((AllowAny, IsAuthenticated))
-def news(request):
-    """
-        get the news list
-        or do a search when needed
-    """
-    if request.method == 'GET':
-        if request.query_params.get('q'):  # do the search thing
-            content = 'q here'
-        else:  # show me the news list
-            url = ('http://newsapi.org/v2/top-headlines?'
-                   'country=us&'
-                   'apiKey=936feff6fec343ebb4b19104bafe64da')
-            response = requests.get(url)
-
-            content = response.json()
-    else:
-        content = 'POST Request Not Allowed'  # not needed
-    # content = {'message': content}
-    return JsonResponse(content)
-
-@api_view(['GET'])
-@renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
-@permission_classes((AllowAny, IsAuthenticated))
-def news_custom_list(request):
-    """
-    kghvkghvkh
-    """
-    content = {'message': 'Hello, World! from yapaitek api'}
-    return JsonResponse(content)
-
-@api_view(['GET'])
-@renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
-@permission_classes((AllowAny, IsAuthenticated))
-def news_custom_search(request):
-    """
-    kghvkghvkh
-    """
-    content = {'message': 'Hello, World! from yapaitek api'}
-    return JsonResponse(content)
 
 
 @api_view(['POST'])

@@ -83,31 +83,30 @@ WSGI_APPLICATION = 'yapaitek.wsgi.application'
 
 DATABASES = {
     'default': {
+        # sqlite
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        # pg sql
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': '',
+        # 'USER': '',
+        # 'PASSWORD': '',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '5432',
+
+        # mysql
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'dj32',
+        # 'USER': 'root',
+        # 'PASSWORD': '1234567890',
+        # 'HOST': 'localhost',
+        # 'PORT': '3306',
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        # },
     }
-    # sqlite
-    # 'ENGINE': 'django.db.backends.sqlite3',
-    # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
-    # pg sql
-    # 'ENGINE': 'django.db.backends.postgresql',
-    # 'NAME': '',
-    # 'USER': '',
-    # 'PASSWORD': '',
-    # 'HOST': '127.0.0.1',
-    # 'PORT': '5432',
-
-    # mysql
-    # 'ENGINE': 'django.db.backends.mysql',
-    # 'NAME': 'dj32',
-    # 'USER': 'root',
-    # 'PASSWORD': '1234567890',
-    # 'HOST': 'localhost',
-    # 'PORT': '3306',
-    # 'OPTIONS': {
-    #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-    # },
 
 }
 
