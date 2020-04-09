@@ -1,15 +1,12 @@
 from rest_framework import serializers
 
 
-class CategorySerializer(serializers.ModelSerializer):
-    """
-    Serializing Categories
-    """
-    class Meta:
-        # model = Category
-        fields = [
-            'id', 'name', 'slug'
-        ]
-        read_only_fields = [
-           'slug',
-        ]
+class AuthMobileSerializer(serializers.Serializer):
+    username = serializers.EmailField()
+    password = serializers.CharField(max_length=200)
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #
+    #     self.fields['username'] = serializers.CharField()
+    #     self.fields['password'] = serializers.CharField()

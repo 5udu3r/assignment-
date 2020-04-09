@@ -86,15 +86,28 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'x',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'x',
-    #     'HOST': 'localhost',
-    #     'PORT': '5432',
-    # }
+    # sqlite
+    # 'ENGINE': 'django.db.backends.sqlite3',
+    # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
+    # pg sql
+    # 'ENGINE': 'django.db.backends.postgresql',
+    # 'NAME': '',
+    # 'USER': '',
+    # 'PASSWORD': '',
+    # 'HOST': '127.0.0.1',
+    # 'PORT': '5432',
+
+    # mysql
+    # 'ENGINE': 'django.db.backends.mysql',
+    # 'NAME': 'dj32',
+    # 'USER': 'root',
+    # 'PASSWORD': '1234567890',
+    # 'HOST': 'localhost',
+    # 'PORT': '3306',
+    # 'OPTIONS': {
+    #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+    # },
 
 }
 
@@ -221,3 +234,8 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = 'api.User'
 NEWS_API_TOKEN = '936feff6fec343ebb4b19104bafe64da'
+reddit_client_id='LAsbnAuQQywwug'
+reddit_client_secret='T5V9-HB59GIuZAtSC0cQicX9oE0'
+reddit_user_agent='yapaitek'
+reddit_username='tokyodevs'
+reddit_password='never-back-down'
