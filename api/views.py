@@ -8,7 +8,7 @@ from api.models import SearchResults
 from django.http import JsonResponse
 from yapaitek import settings
 import datetime as dt
-import ghasedak
+# import ghasedak
 import requests
 import praw
 
