@@ -17,23 +17,89 @@ Overview
 blah blah blah 
 
 clone 
+```
+git clone https://github.com/tokyodevs/YapAiTek-assignment-.git && cd YapAiTek-assignment-
+```
 
-install pkgs pip 
+
+install pkgs pip (python3)
+
+```
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt 
+```
+
 
 another version install pks brew
 
 
 migrate 
+```
+python manage.py makemigrations
+python manage.py migrate
+```
 
-
+test 
+```
+python manage.py test
+```
 run  
-
+```
+python manage.py runserver 0.0.0.0:9000
+```
 
 usage 
 
+1- create super user
+```
+python manage.py createsuperuser
+```
+output: 
+```
+Username: root
+Error: That username is already taken.
+Username: admin
+Email address: admin@admin.admin
+Password: 
+Password (again): 
+The password is too similar to the username.
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+
+```
+
+do a login and get jwt 
+
+```
+## Request Duplicate
+curl -X "POST" "http://localhost:9000/api/token/" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "username": "admin",
+  "password": "admin"
+}'
+
+```
+
+do a list request
+```
+curl "http://localhost:9000/api/news" \
+     -H 'Authorization: Bearer YOUR_JWT' \
+     -H 'Content-Type: application/json; charset=utf-8'
+```
+
+do a search request
+```
+curl "http://localhost:9000/api/news?q=trump" \
+     -H 'Authorization: Bearer YOUR_JWT' \
+     -H 'Content-Type: application/json; charset=utf-8'
+```
 
 
-test 
+
 
 
 docs 
