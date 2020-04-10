@@ -16,13 +16,14 @@ Overview
 ---------
 blah blah blah 
 
-clone 
+
+##clone 
 ```
 git clone https://github.com/tokyodevs/YapAiTek-assignment-.git && cd YapAiTek-assignment-
 ```
 
 
-install pkgs pip (python3)
+##install packages from pip (python3)
 
 ```
 python3 -m venv env
@@ -31,27 +32,28 @@ pip install -r requirements.txt
 ```
 
 
-another version install pks brew
+####another version install pks brew
 
 
-migrate 
+##migrate 
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-test 
+##test 
 ```
 python manage.py test
 ```
-run  
+
+##run  
 ```
 python manage.py runserver 0.0.0.0:9000
 ```
 
-usage 
+##usage 
 
-1- create super user
+###create super user
 ```
 python manage.py createsuperuser
 ```
@@ -71,7 +73,7 @@ Superuser created successfully.
 
 ```
 
-do a login and get jwt 
+###do a login and get jwt 
 
 ```
 ## Request Duplicate
@@ -84,14 +86,14 @@ curl -X "POST" "http://localhost:9000/api/token/" \
 
 ```
 
-do a list request
+###get the access token from previous command and request a list 
 ```
 curl "http://localhost:9000/api/news" \
      -H 'Authorization: Bearer YOUR_JWT' \
      -H 'Content-Type: application/json; charset=utf-8'
 ```
 
-do a search request
+###do a search request
 ```
 curl "http://localhost:9000/api/news?q=trump" \
      -H 'Authorization: Bearer YOUR_JWT' \
@@ -102,7 +104,7 @@ curl "http://localhost:9000/api/news?q=trump" \
 
 
 
-docs 
-
-    
-     python manage.py scaffold forum --model Forum char:name char:reads
+##docs (swagger)
+```
+http://localhost:9000/
+```
