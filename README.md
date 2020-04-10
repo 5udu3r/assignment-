@@ -76,7 +76,6 @@ Superuser created successfully.
 ### do a login and get jwt 
 
 ```
-## Request Duplicate
 curl -X "POST" "http://localhost:9000/api/token/" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
