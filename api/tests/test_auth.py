@@ -1,8 +1,8 @@
+from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
-from api.models import User
 
 
 class AuthTest(APITestCase):

@@ -1,5 +1,6 @@
 import os
 
+from django.contrib.auth.models import User
 from django.urls import reverse
 from locust import HttpLocust, TaskSet, task, between
 from django.utils.crypto import get_random_string
@@ -8,7 +9,6 @@ from rest_framework import status
 from django.urls import reverse
 import django
 django.setup()
-from api.models import User
 
 # locust -f api/tests/locust.py --no-web -c 10000 -r 100
 
