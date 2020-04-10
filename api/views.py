@@ -73,6 +73,7 @@ def mix_news_together(list_a, list_b):
     mixed_list = [None] * (len(list_a) + len(list_b))
     mixed_list[::2] = list_a
     mixed_list[1::2] = list_b
+    # TODO: save the news in db
     return mixed_list
 
 @api_view(['GET'])
