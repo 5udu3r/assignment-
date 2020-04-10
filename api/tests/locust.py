@@ -10,7 +10,7 @@ import django
 django.setup()
 from api.models import User
 
-# locust -f api/tests/test_10k_user.py --no-web -c 10000 -r 100
+# locust -f api/tests/locust.py --no-web -c 10000 -r 100
 
 class WebsiteTasks(TaskSet):
     def setUp(self):
