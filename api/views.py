@@ -76,6 +76,7 @@ def mix_news_together(list_a, list_b):
     # TODO: save the news in db
     return mixed_list
 
+
 @api_view(['GET'])
 @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
 @permission_classes((AllowAny, IsAuthenticated))
