@@ -2,6 +2,7 @@
 YapAiTek assignment
 ---------
 
+<p align="center"><img src="https://raw.githubusercontent.com/tokyodevs/YapAiTek-assignment-/master/img.png" width="2000"></p>
 
 
 <p align="center">
