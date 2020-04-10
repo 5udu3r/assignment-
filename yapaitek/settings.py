@@ -14,6 +14,10 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from datetime import timedelta
+import os
+
+env = os.environ.copy()
+os.environ['DJANGO_SETTINGS_MODULE'] = 'yapaitek.settings'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -42,7 +46,8 @@ INSTALLED_APPS = [
     'api',
     # 'rest_framework_swagger',
     'drf_yasg',
-    "anymail",
+    'anymail',
+    # 'django_nose',
 
     # 'rest_framework_jwt'
 ]
@@ -141,7 +146,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -159,7 +164,8 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
     ],
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 
 }
 
@@ -238,3 +244,9 @@ reddit_client_secret='T5V9-HB59GIuZAtSC0cQicX9oE0'
 reddit_user_agent='yapaitek'
 reddit_username='tokyodevs'
 reddit_password='never-back-down'
+
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+# NOSE_ARGS = [
+#     '--cover-erase',
+#     '--cover-package=api',
+# ]

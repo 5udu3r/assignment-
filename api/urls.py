@@ -10,13 +10,14 @@ urlpatterns = [
 
      # url(r'^$', schema_view),
 
-     # auth
-     url(r'^auth/verify_code/$', views.verify_code, name='verify_code'),
-     url(r'^auth/send_code/$', views.send_code, name='send_code'),
 
      path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
      path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
+     # News List
+     path('news', views.normal_list, name='news'),
 
+     # url(r'^auth/verify_code_from_cellphone/$', views.verify_code, name='verify_code'),
+     # url(r'^auth/send_code_to_cellphone/$', views.send_code, name='send_code'),
 
 ]
