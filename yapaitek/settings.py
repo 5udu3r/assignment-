@@ -44,12 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    # 'rest_framework_swagger',
     'drf_yasg',
-    'anymail',
-    # 'django_nose',
 
-    # 'rest_framework_jwt'
 ]
 
 MIDDLEWARE = [
