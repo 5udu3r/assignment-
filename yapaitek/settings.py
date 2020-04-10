@@ -233,7 +233,7 @@ SIMPLE_JWT = {
 # ]
 # LOGIN_URL = '/panel/login'
 
-AUTH_USER_MODEL = 'api.User'
+# AUTH_USER_MODEL = 'api.User'
 NEWS_API_TOKEN = '936feff6fec343ebb4b19104bafe64da'
 reddit_client_id='LAsbnAuQQywwug'
 reddit_client_secret='T5V9-HB59GIuZAtSC0cQicX9oE0'
