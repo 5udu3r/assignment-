@@ -47,10 +47,7 @@ python manage.py migrate
 python manage.py test
 ```
 
-## run  
-```
-python manage.py runserver 0.0.0.0:9000
-```
+
 
 ## usage 
 
@@ -72,6 +69,11 @@ This password is too common.
 Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 
+```
+
+## run  
+```
+python manage.py runserver 0.0.0.0:9000
 ```
 
 ### do a login and get jwt 
