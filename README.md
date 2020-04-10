@@ -108,3 +108,8 @@ curl "http://localhost:9000/api/news?q=trump" \
 ```
 http://localhost:9000/
 ```
+
+## TODO
+- [ ] another branch or maybe another tag for using background tasks or maybe celery 
+
+- [x] do the task
