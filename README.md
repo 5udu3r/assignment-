@@ -114,7 +114,7 @@ http://localhost:9000/
 ## TODO
 - [ ] another branch or maybe another tag for using background tasks or maybe celery 
 - [ ] write to work/test like https://github.com/tokyodevs/simple_django/blob/master/lesgo.sh 
-- [ ] write to work/test like https://github.com/tokyodevs/simple_django/blob/master/lesgo.sh 
+
 - [ ] use https://pypi.org/project/django3scaffold/ for no reason
 
 - [x] do the task
