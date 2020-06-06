@@ -2,7 +2,6 @@
 YapAiTek assignment
 ---------
 
-<p align="center"><img src="https://raw.githubusercontent.com/tokyodevs/YapAiTek-assignment-/master/img.png" width="2000"></p>
 
 
 <p align="center">
@@ -20,7 +19,7 @@ blah blah blah
 
 ## clone 
 ```
-git clone https://github.com/tokyodevs/YapAiTek-assignment-.git && cd YapAiTek-assignment-
+git clone https://github.com/tokyodevs/-assignment-.git && cd -assignment-
 ```
 
 
